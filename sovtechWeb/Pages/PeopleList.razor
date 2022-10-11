@@ -1,0 +1,27 @@
+﻿@page "/people"
+
+<PageTitle>People List</PageTitle>
+
+<h3>People List</h3>
+
+@using sovtechWeb.Data
+<PeopleTable ListOfPeople=@ListOfPeople.ToList() />
+
+@code {
+    public int? Count { get; set; }
+    public string? Next { get; set; }
+    public string? Previous { get; set; }
+    List<PeopleViewModel>? ListOfPeople { get; set; } = new List<PeopleViewModel>();
+
+    PeopleMetaViewModel peopledata = new PeopleMetaViewModel();
+    protected override async Task OnInitializedAsync()
+    {
+        using (var httpclient = new HttpClient())
+            peopledata = await httpclient.GetFromJsonAsync<PeopleMetaViewModel>("http://localhost:3000/swapi/people");
+
+        Count = peopledata?.Count;
+        Next = peopledata?.Next;
+        Previous = peopledata?.Previous;
+        ListOfPeople = peopledata?.Results.ToList();
+    }
+}

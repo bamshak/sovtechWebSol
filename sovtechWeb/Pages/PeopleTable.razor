@@ -1,0 +1,57 @@
+﻿@using sovtechWeb.Data
+
+@if (ListOfPeople == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Height</th>
+                <th>Mass</th>
+                <th>Hair Color</th>
+                <th>Skin Color</th>
+                <th>Eye Color</th>
+                <th>Birth Year</th>
+                <th>Gender</th>
+                <th>Home World</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var people in ListOfPeople)
+            {
+                <tr>
+                    <td>@GetSerialNum()</td>
+                    <td>@people.Name</td>
+                    <td>@people.Height</td>
+                    <td>@people.Mass</td>
+                    <td>@people.HairColor</td>
+                    <td>@people.SkinColor</td>
+                    <td>@people.EyeColor</td>
+                    <td>@people.BirthYear</td>
+                    <td>@people.Gender</td>
+                    <td>@people.HomeWorld</td>
+                    <td>@people.Created.ToString("dd-MMM-yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    int serialnum = 0;
+    private int GetSerialNum()
+    {
+        serialnum++;
+        return serialnum;
+    }
+
+    [Parameter]
+    public List<PeopleViewModel>? ListOfPeople { get; set; } = new List<PeopleViewModel>();
+}

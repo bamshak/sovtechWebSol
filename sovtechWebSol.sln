@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sovtechWebApi", "sovtechWebApi\sovtechWebApi.csproj", "{C3EAB071-A699-47FB-A45F-62535309F8BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sovtechWeb", "sovtechWeb\sovtechWeb.csproj", "{CAF34FDC-F2C0-44BF-B323-9BF1C0C106F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3EAB071-A699-47FB-A45F-62535309F8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3EAB071-A699-47FB-A45F-62535309F8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3EAB071-A699-47FB-A45F-62535309F8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3EAB071-A699-47FB-A45F-62535309F8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF34FDC-F2C0-44BF-B323-9BF1C0C106F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF34FDC-F2C0-44BF-B323-9BF1C0C106F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF34FDC-F2C0-44BF-B323-9BF1C0C106F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF34FDC-F2C0-44BF-B323-9BF1C0C106F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1447CBEE-7DB0-419B-8124-56CA20DCE99E}
+	EndGlobalSection
+EndGlobal

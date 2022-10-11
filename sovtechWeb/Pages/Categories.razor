@@ -1,0 +1,70 @@
+﻿@using sovtechWeb.Data
+<h3>Categories</h3>
+@if (categorylist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in categorylist)
+            {
+                <tr>
+                    <td>@GetSerialNum()</td>
+                    <td>@cat</td>
+                    <td><button type="button" class="btn btn-primary btn-sm" 
+                        @onclick="() => OpenDialog(cat)">
+                            View
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    if (DialogOpen)
+    {
+        <Joke Category=@category OnClose="@OnDialogClose">
+        </Joke>
+    }
+}
+
+@code {
+
+    public List<string>? categorylist { get; set; }
+
+    int serialnum = 0;
+    string category = string.Empty;
+    private int GetSerialNum(){
+        serialnum++;
+        return serialnum;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using(var httpclient = new HttpClient())
+            categorylist = await httpclient.GetFromJsonAsync<List<string>>("http://localhost:3000/chuck/categories");
+    }
+
+    public bool DialogOpen { get; set; }
+    private async Task OnDialogClose(bool accepted)
+    {
+        DialogOpen = false;
+        StateHasChanged();
+    }
+
+    private void OpenDialog(string cat)
+    {
+        DialogOpen = true;
+        category = cat;
+        StateHasChanged();
+    }
+}
